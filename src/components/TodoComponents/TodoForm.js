@@ -24,10 +24,7 @@ class TodoForm extends Component{
         })
     }
 
-    handleClear = e => {
-        e.preventDefault();
-        console.log('it\'s also working!!!')
-    }
+
 
 
     render(){
@@ -43,7 +40,7 @@ class TodoForm extends Component{
                     />
                     <button>Add</button>
                 </form>
-                <form onSubmit={this.handleClear}>
+                <form onSubmit={this.props.handleClear}>
                     <button>Clear Completed</button>
                 
                 </form>

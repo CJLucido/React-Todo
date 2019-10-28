@@ -70,11 +70,24 @@ class App extends React.Component {
     })
   }
 
+  handleClear = e => {
+    e.preventDefault();
+    console.log('it\'s also working!!!')
+    
+    this.setState({
+      todos: this.state.todos.filter(item => {
+       return  !item.completed 
+      })
+    })
+
+    
+}
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.handleAddItem}/>
+        <TodoForm addItem={this.handleAddItem} handleClear={this.handleClear}/>
         <TodoList todos={this.state.todos} handleToggle={this.handleToggle}/>
       </div>
     );
