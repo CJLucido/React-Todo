@@ -3,6 +3,7 @@ import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
 
+
 const data = [
   {
     task: 'chip paint',
@@ -31,16 +32,21 @@ const data = [
   }
 ];
 
+
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   constructor(){
     super();
     this.state = {
       todos: data
+     
     }
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
+  
 
   handleToggle = id => {
     this.setState({
@@ -83,7 +89,14 @@ class App extends React.Component {
     
 }
 
+
+
+
   render() {
+    let todosStore = "";
+
+    localStorage.setItem('todosStore', JSON.stringify(this.state.todos))
+    
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
