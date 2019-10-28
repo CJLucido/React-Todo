@@ -27,7 +27,7 @@ const data = [
   {
     task: 'repaint',
     id: 5,
-    completed:false
+    completed:true
   }
 ];
 
