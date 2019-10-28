@@ -18,6 +18,10 @@ class TodoForm extends Component{
     handleSubmit = e => {
         e.preventDefault();
         console.log('it\'s working!!!')
+        this.props.addItem(this.state.newItem);
+        this.setState({
+            newItem: ''
+        })
     }
 
     handleClear = e => {
