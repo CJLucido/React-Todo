@@ -27,7 +27,7 @@ const data = [
   {
     task: 'repaint',
     id: 5,
-    completed:true
+    completed: false
   }
 ];
 
@@ -42,8 +42,19 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  handleIt = () => {
-
+  handleToggle = id => {
+    this.setState({
+      todos: this.state.todos.map(item => {
+        if(item.id === id){
+          return {
+            ...item,
+            completed: !item.completed
+          } 
+        } else{
+          return item;
+        }
+      })
+    })
   }
 
   handleAddItem = (task) => {
@@ -64,7 +75,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addItem={this.handleAddItem}/>
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={this.state.todos} handleToggle={this.handleToggle}/>
       </div>
     );
   }

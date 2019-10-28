@@ -12,6 +12,7 @@ import Todo from "./Todo"
                 <Todo
                     key={item.id}
                     item={item}
+                    handleToggle={props.handleToggle}
                 />
                                      )
                             )
